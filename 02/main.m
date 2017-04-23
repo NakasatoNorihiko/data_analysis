@@ -115,4 +115,4 @@ figure(1); clf; hold on; axis([-2.8 2.8 -1 1.5]);
 plot(X, F, 'g-');
 plot(x, y, 'bo');
 plot(x, truey, 'r-');
-pause();
+print("plot.png");
