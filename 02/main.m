@@ -106,13 +106,16 @@ for hk=1:length(hhlist)
 end
 mean(g,3)
 [gl,ggl]=min(mean(g,3),[],2); [ghl, gghl]=min(gl);
-L=llist(ggl(gghl)); HH=hhlist(gghl);
+L=llist(ggl(gghl)); HH=hhlist(gghl); H=(HH/2)**0.5;
+
+H, L
 
 K=exp(-(repmat(X.^2,1,n)+repmat(x2',N,1)-2*X*x')/HH);
 k=exp(-xx/HH); t=(k^2+L*eye(n))\(k*y); F=K*t;
 
 figure(1); clf; hold on; axis([-2.8 2.8 -1 1.5]);
 plot(X, F, 'g-');
-plot(x, y, 'bo');
 plot(x, truey, 'r-');
+plot(x, y, 'bo');
+legend('Learning Result', 'True Function', 'Data');
 print("plot.png");
