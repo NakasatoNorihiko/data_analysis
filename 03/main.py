@@ -36,7 +36,7 @@ p2 = pT.dot(p)
 t = np.zeros(32) 
 z = np.zeros(32)
 u = np.zeros(32)
-g = 0.1
+g = 0.01
 for i in range(10):
     t0 = t
     z0 = z
