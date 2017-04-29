@@ -37,7 +37,7 @@ t = np.zeros(32)
 z = np.zeros(32)
 u = np.zeros(32)
 g = 0.01
-for i in range(10):
+for i in range(100):
     t0 = t
     z0 = z
     u0 = u
@@ -46,12 +46,18 @@ for i in range(10):
         z[j] = np.max([0, t[j] + u0[j] - g]) + np.min([0, t[j] + u0[j] + g])
     u = u0 + t - z
 
-F = P.dot(t) 
+for i in range(len(t)):
+    if np.abs(t[i]) < 0.001:
+        t[i] = 0
+
+F = P.dot(t)
+
+print(t)
 
 plt.grid()
 plt.xlim(-4.8, 4.8)
 plt.ylim(-0.5, 1.2)
 plt.plot(x, y, 'o')
 plt.plot(X, F, '-')
+# plt.savefig('plot.png')
 plt.show()
-
