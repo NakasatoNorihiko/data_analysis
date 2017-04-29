@@ -10,8 +10,8 @@ seed(0)
 w = 0.1
 W = 0.001
 
-x = np.arange(-5, 5, w)
-X = np.arange(-5, 5, W)
+x = np.arange(-3, 3, w)
+X = np.arange(-3, 3, W)
 
 n = len(x)
 N = len(X)
@@ -55,9 +55,8 @@ F = P.dot(t)
 print(t)
 
 plt.grid()
-plt.xlim(-4.8, 4.8)
+plt.xlim(-2.8, 2.8)
 plt.ylim(-0.5, 1.2)
 plt.plot(x, y, 'o')
 plt.plot(X, F, '-')
-# plt.savefig('plot.png')
-plt.show()
+plt.savefig('plot.png')
